@@ -115,6 +115,7 @@ def dofetch(id, key, region):
                 #添加TG酱通知
                 msgContent= InstanceId+ " ：流量超出限制，即将自动关机。" + "剩余流量：" + TrafficPackageRemaining+ "GB"
                 msgUrl="https://tgbot-red.vercel.app/api?token="+ tgToken +"&message="+ msgContent
+                print(msgUrl)
                 #告警结果：
                 gaojinResult="流量告警结果：流量超出限制，即将自动关机。\n"+"剩余流量：" + str(TrafficPackageRemaining)+ "GB"
                 response= requests.get(url=msgUrl).text
