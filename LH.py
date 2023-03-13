@@ -102,6 +102,11 @@ def dofetch(id, key, region):
                 #告警结果：
                 print("剩余流量充足")  
                 gaojinResult="流量告警结果：剩余流量充足！"
+                msgContent = "已使用："+TrafficUsed+" "+"总流量："+TrafficPackageTotal+" "+"剩余："+TrafficPackageRemaining
+                msgUrl="https://tgbot-red.vercel.app/api?token="+ tgToken +"&message="+ msgContent
+                print(msgUrl)
+                #告警结果：
+                response= requests.get(url=msgUrl).text
             else:
                 print(InstanceId,":","流量超出限制，自动关闭")
                 req_Stop = models.StopInstancesRequest()
@@ -115,7 +120,6 @@ def dofetch(id, key, region):
                 #添加TG酱通知
                 msgContent= InstanceId+ " ：流量超出限制，即将自动关机。" + "剩余流量：" + TrafficPackageRemaining+ "GB"
                 msgUrl="https://tgbot-red.vercel.app/api?token="+ tgToken +"&message="+ msgContent
-                print(msgUrl)
                 #告警结果：
                 gaojinResult="流量告警结果：流量超出限制，即将自动关机。\n"+"剩余流量：" + str(TrafficPackageRemaining)+ "GB"
                 response= requests.get(url=msgUrl).text
