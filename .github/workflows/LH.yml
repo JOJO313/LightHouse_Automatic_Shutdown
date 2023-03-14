@@ -10,7 +10,7 @@ on:
     - dev
   schedule:
     - cron: "*/30 * * * *"
-
+    
 
 jobs:
   build:
