@@ -102,7 +102,7 @@ def dofetch(id, key, region):
                 #告警结果：
                 print("剩余流量充足")  
                 gaojinResult="流量告警结果：剩余流量充足！"
-                msgContent = "已使用："+str(TrafficUsed)+" "+"总流量："+str(TrafficPackageTotal)+" "+"剩余："+str(TrafficPackageRemaining)
+                msgContent = "已使用："+str(TrafficUsed)+"GB "+"总流量："+str(TrafficPackageTotal)+"GB "+"剩余："+str(TrafficPackageRemaining)+"GB"
                 msgUrl="https://tgbot-red.vercel.app/api?token="+ tgToken +"&message="+ msgContent
                 print(msgUrl)
                 #告警结果：
